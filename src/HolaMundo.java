@@ -6,6 +6,6 @@ public class HolaMundo {
 		 *Comentario 1 
 		 *Comentario 2
 		 */
-		System.out.println("Hola Mundo");
+		System.out.println("Hola Mund");
 	}
 }
