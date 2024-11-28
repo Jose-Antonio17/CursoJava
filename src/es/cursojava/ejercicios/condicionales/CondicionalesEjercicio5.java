@@ -5,8 +5,8 @@ public class CondicionalesEjercicio5 {
 	public static void main (String[] args) {
 		
 		String empleado = "Jose Antonio";
-		int edad = 29 ;
-		double experiencia = 2 ;
+		int edad = 35 ;
+		double experiencia = 6 ;
 		String departamento = "Ventas";
 		String categoria = "";
 		String rango = "";
@@ -34,7 +34,7 @@ public class CondicionalesEjercicio5 {
 				categoria = "Veterano Experto";	
 				}
 		}			
-		if (departamento.equals("Departamento de TI") && experiencia > 5 ) {
+		if (departamento.equals("Departamento de IT") && experiencia > 5 ) {
 			rango = "Tech Lead";
 		} else if (departamento == "Recursos Humanos" && experiencia > 1 && experiencia < 5 ) {
 			rango = "Gestor de Personas";
