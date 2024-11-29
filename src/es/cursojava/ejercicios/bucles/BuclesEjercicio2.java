@@ -6,13 +6,13 @@ public class BuclesEjercicio2 {
 
 	public static void main (String [] args) {
 		
-		int i = 1 ;
+		int i = 0 ;
 		int num = 0 ; 
 		int multiplo3 = 0 ;
 		int multiplo5 = 0 ;
-		while (i<11) {
+		while (i<10) {
 			Scanner scan = new Scanner(System.in);
-			System.out.println("Ingresar el número " + i + " :");
+			System.out.println("Ingresar el número " + (i+1) + " :");
 			num = scan.nextInt();
 			if (num%3 == 0) {
 				multiplo3++;
