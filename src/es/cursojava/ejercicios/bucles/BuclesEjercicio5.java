@@ -24,7 +24,7 @@ public static void main (String [] args) {
 			}
 			i++;	
 		}
-		promedio = promedio / (i-1) ;
+		promedio = promedio / num ;
 		System.out.println("La nota media de todos los alumnos es:" + promedio);
 	}
 }
