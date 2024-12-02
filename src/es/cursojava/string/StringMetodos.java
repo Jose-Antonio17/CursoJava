@@ -1,15 +1,15 @@
-package es.cursojava.inicio;
+package es.cursojava.string;
 
-public class String {
+public class StringMetodos {
 
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		
 		String mensaj = "hola";
-		String mensaje2 = mensaje.toUpperCase();
+		String mensaje2 = mensaj.toUpperCase();
 		String nombre = "Marta";
 		
-		System.out.println(mensaje + " " + nombre + "qué tal estas?");
-
+		System.out.println(mensaj + " " + nombre + "qué tal estas?");
+		
 		String mensaje = "		Hola qué tal?		";
 		char caracter = mensaje.charAt(0);
 		System.out.println(caracter);
@@ -36,5 +36,6 @@ public class String {
 		
 		System.out.println(mensaje.substring(4));
 		System.out.println(mensaje.substring(4,8));
-		
+	}
+	
 }

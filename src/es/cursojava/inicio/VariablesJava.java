@@ -24,7 +24,7 @@ public class VariablesJava {
 			boolean esPar = true;
 		
 		//Variables de tipo objeto y arrays
-			String nombre = "Jose"; //Objeto
+			String nombre = "Jose Luis"; //Objeto
 			numero = 8;
 			int [] numeros = {0,1,2,3}; //Array
 			
