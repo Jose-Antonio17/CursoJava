@@ -10,7 +10,7 @@ public class StringMetodos {
 		
 		System.out.println(mensaj + " " + nombre + "qué tal estas?");
 		
-		String mensaje = "		Hola qué tal?		";
+		String mensaje = "		Hola	qué tal?		";
 		char caracter = mensaje.charAt(0);
 		System.out.println(caracter);
 		

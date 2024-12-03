@@ -6,7 +6,7 @@ public class BuclesEjercicio8 {
 	
 public static void main (String [] args) {
 		
-		int i = 1 ;
+		int i = 0 ;
 		int top10 = 0 ;
 		int tenista = 0 ;
 		
@@ -15,9 +15,9 @@ public static void main (String [] args) {
 		int num = scan.nextInt();
 		
 		while (i<=num) {
-			System.out.println("Ingresar el tenista número " + i + " :");
+			System.out.println("Ingresar el tenista número " + (i+1) + " :");
 			tenista = scan.nextInt();
-			if (tenista<11) {
+			if (tenista<10) {
 				top10++;
 			}
 			i++;		
