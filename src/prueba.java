@@ -10,5 +10,7 @@ public class prueba {
 
 		System.out.println(corre.contains("	"));
 		
+
+		
 	}
 }

@@ -36,6 +36,8 @@ public class StringMetodos {
 		
 		System.out.println(mensaje.substring(4));
 		System.out.println(mensaje.substring(4,8));
+		
+		System.out.println(mensaje.replace(" ", ""));
 	}
 	
 }

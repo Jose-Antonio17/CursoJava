@@ -53,18 +53,17 @@ public class StringEjercicio1 {
 							System.out.println("Correo no valido, tiene mas de un @");
 						}
 						if (correo.contains(".")) {
-							int num = correo.indexOf("@");
-							int num2 = correo.lastIndexOf(".");
-							if (num > num2) {
+							if (correo.indexOf("@") > correo.lastIndexOf(".")) {
 								System.out.println("Correo no valido, no hay punto despues del @");
 							}
+							int num = correo.indexOf("@");
 							String correo2 = correo.substring(num);
-							int num3 = correo2.indexOf(".");
-							if (num3 < 2) {
+							int num2 = correo2.indexOf(".");
+							if (num2 < 2) {
 								System.out.println("Correo no valido, hay menos de 3 caracteres entre el @ y el .");
 							}
-							int num4 = correo.lastIndexOf(".");
-							if (correo.length() > (num4 + 7) || correo.length() < (num4 + 3)) {
+							int num3 = correo.lastIndexOf(".");
+							if (correo.length() > (num3 + 7) || correo.length() < (num3 + 3)) {
 								System.out.println(
 										"Correo no valido, no cumple la cantidad de caracteres despues del punto");
 							}
