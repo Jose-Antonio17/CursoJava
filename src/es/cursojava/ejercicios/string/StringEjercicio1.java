@@ -56,8 +56,8 @@ public class StringEjercicio1 {
 							if (correo.indexOf("@") > correo.lastIndexOf(".")) {
 								System.out.println("Correo no valido, no hay punto despues del @");
 							}
-							int num = correo.indexOf("@");
-							String correo2 = correo.substring(num);
+							int num = correo.indexOf("@")+1;
+							String correo2 = correo.substring(num+1);
 							int num2 = correo2.indexOf(".");
 							if (num2 < 2) {
 								System.out.println("Correo no valido, hay menos de 3 caracteres entre el @ y el .");

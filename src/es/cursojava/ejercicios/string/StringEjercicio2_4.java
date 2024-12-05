@@ -10,10 +10,10 @@ public class StringEjercicio2_4 {
 		System.out.println("Introducir palabra");
 		String palabras = scan.nextLine();
 		int i = 0;
-		int num = 0;
 		String palabraGrande = "";
 
 		while (palabras.contains(" ")) {
+			int num = 0;
 			num = palabras.indexOf(" ");
 			if (num > i) {
 				palabraGrande = palabras.substring(0, num);
@@ -24,6 +24,6 @@ public class StringEjercicio2_4 {
 		if (palabras.length() > i) {
 			palabraGrande = palabras;
 		}
-		System.out.println("La palabra mas grande es: " + palabraGrande);
+		System.out.println("La palabra mas larga es: " + palabraGrande);
 	}
 }

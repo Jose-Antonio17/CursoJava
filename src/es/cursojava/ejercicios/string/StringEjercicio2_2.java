@@ -13,12 +13,11 @@ public class StringEjercicio2_2 {
 
 		int num = palabraMin.length() - 1;
 
-		for (int j = 0, i = num; j <= num/2; j++, i--) {
-			if (palabraMin.charAt(j) == palabraMin.charAt(i)) {
+		for (int j = 0; j <= num/2; j++) {
+			if (palabraMin.charAt(j) == palabraMin.charAt(palabraMin.length() - 1 - j)) {
 				if(j == num/2) {
 					System.out.println("Es palíndromo");
 				}
-				continue;
 			} else {
 				System.out.println("No es palíndromo");
 				break;
