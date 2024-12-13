@@ -1,8 +1,8 @@
-package es.cursojava.arrays;
+package es.cursojava.ejercicios.arrays;
 
 import java.util.Scanner;
 
-public class ArrayEjercicios4 {
+public class ArrayEjercicio4 {
 
 	public static void main(String[] args) {
 
