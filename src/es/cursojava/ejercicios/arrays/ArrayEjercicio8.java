@@ -10,7 +10,7 @@ public class ArrayEjercicio8 {
 		System.out.println("Ingresar el número de aulas:");
 		int num = scan.nextInt();
 
-		String[][] clases = new String[num][2];
+		String[][] clases = new String[num][3];
 
 		int opcion = 0;
 		do {
