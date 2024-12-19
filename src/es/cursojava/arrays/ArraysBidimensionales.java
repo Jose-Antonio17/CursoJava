@@ -11,9 +11,7 @@ public class ArraysBidimensionales {
 			
 			for (int columna=0 ; columna < numeros[fila].length   ; columna++) {
 				System.out.println("["+fila+"]["+columna+"]: "+ numeros[fila][columna]);
-			}
-			
+			}	
 		}
-
 	}
 }

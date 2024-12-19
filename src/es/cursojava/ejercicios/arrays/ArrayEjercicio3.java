@@ -27,7 +27,7 @@ public class ArrayEjercicio3 {
 			for (int i = numeros.length - 1 ; i >=0 ; i--) {
 				System.out.println(numeros[i]);
 			}
-			
+		
 		}
 	}
 }

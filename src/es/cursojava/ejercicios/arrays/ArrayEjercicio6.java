@@ -2,12 +2,12 @@ package es.cursojava.ejercicios.arrays;
 
 import java.util.Scanner;
 
-public class ArrayEjercicio5 {
+public class ArrayEjercicio6 {
 
 	public static void main(String[] args) {
-		
-		int filas = 4;
-		int columnas = 4;
+
+		int filas = 2;
+		int columnas = 3;
 
 		int[][] numeros = new int[filas][columnas];
 
@@ -26,30 +26,14 @@ public class ArrayEjercicio5 {
 				System.out.println();
 			}
 			for (int j = 0; j < numeros[i].length; j++) {
-				System.out.print(numeros[i][j]+" ");
+				System.out.print(numeros[i][j] + " ");
 			}
 		}
 		System.out.println("\n===========");
-		for (int i = 0; i < numeros.length; i++) {
-			float media = 0;
-			for (int j = 0; j < numeros[i].length; j++) {
-				media += numeros[i][j];
-			}
-			System.out.println("La media de la fila " + i + " :" + (media / filas));
+		for (int[] is : numeros) {	
+			System.out.println();
+			for (int i : is)
+			System.out.print(i+" ");
 		}
-		System.out.println("===========");
-		for (int i = 0; i < numeros.length; i++) {
-			if (i > 0) {
-				System.out.println();
-			}
-			for (int j = 0; j < numeros[i].length; j++) {
-				if (i == j) {
-					System.out.print(numeros[i][j]+" ");
-				} else {
-					System.out.print("  ");
-				}
-			}
-			}
-			
 	}
 }
