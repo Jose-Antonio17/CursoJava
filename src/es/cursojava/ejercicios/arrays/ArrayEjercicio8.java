@@ -16,7 +16,7 @@ public class ArrayEjercicio8 {
 		do {
 			System.out.println("--------------------------------------");
 			System.out.println(
-					"Opciones:\n1. PEDIR DATOS\n2. MOSTRAR ALUMNOS POR AULA\n3. BUSCAR ALUMNO\n4. BORRAR ALUMNO\n5. SALIR");
+					"Opciones:\n1. PEDIR DATOS\n2. MOSTRAR ALUMNOS POR AULA\n3. BUSCAR ALUMNO\n4. BORRAR ALUMNO\n5. BORRAR A TODOS LOS ALUMNOS\n6. SALIR");
 
 			scan = new Scanner(System.in);
 			System.out.println("Elige una opcion:");
@@ -37,10 +37,10 @@ public class ArrayEjercicio8 {
 			}
 			if (opcion == 2) {
 				scan = new Scanner(System.in);
-				System.out.println("Elige un aula:");
+				System.out.println("Elige el aula para ver a sus alumnos:");
 				int aulaNum = scan.nextInt();
 				System.out.println("Lista de alumnos de la clase " + aulaNum + ":");
-				for (int j = 0; j < clases.length; j++) {
+				for (int j = 0; j < clases[aulaNum-1].length; j++) {
 					System.out.println(" - " + clases[aulaNum - 1][j]);
 				}
 			}
@@ -78,6 +78,25 @@ public class ArrayEjercicio8 {
 					System.out.println("Se ha eliminado correctamente a " + alumnoBuscar);
 				}
 			}
-		} while (opcion < 5);
+			if (opcion == 5) {
+				
+				for (int i = 0; i < clases.length; i++) {
+					for (int j = 0; j < clases[i].length; j++) {
+							clases[i][j] = null;
+					}
+				}
+				boolean comprobacion = true;
+				for (int i = 0; i < clases.length; i++) {
+					for (int j = 0; j < clases[i].length; j++) {
+							if (!(clases[i][j] == null)) {
+								comprobacion = false;
+							}
+					}
+				}
+				if (comprobacion) {
+					System.out.println("Se ha eliminado correctamente a todos los alumnos");
+				}
+			}
+		} while (opcion < 6);
 	}
 }
