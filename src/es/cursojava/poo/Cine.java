@@ -1,6 +1,5 @@
 package es.cursojava.poo;
 
-import es.cursojava.funciones.PintaMenu;
 import es.cursojava.funciones.Utilidades;
 
 public class Cine {
@@ -102,11 +101,19 @@ public class Cine {
 	}
 
 	public void mostrarSalas(Sala[] salasCine) {
-		int i = 1;
+		int contador= 0;
+		int i = 0;
 		for( Sala sala : salasCine) {
 			System.out.println("Sala "+ i);
 			pintarAsientos(sala.getButacas());
-			
+			for (int[] asientosOcupados : sala.getButacas()) {
+				for (int asientoLibre : asientosOcupados) {
+					if (asientoLibre == 1) {
+						contador++;
+					}
+				}
+			}
+			System.out.println("los asientos ocupados son "+ contador);	
 		}
 	}
 
