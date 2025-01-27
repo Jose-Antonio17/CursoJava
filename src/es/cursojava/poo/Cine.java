@@ -1,5 +1,6 @@
 package es.cursojava.poo;
 
+import es.cursojava.funciones.PintaMenu;
 import es.cursojava.funciones.Utilidades;
 
 public class Cine {
@@ -63,7 +64,7 @@ public class Cine {
 					if (opcion == 1) {
 						System.out.println("Elige tus asientos");
 						for(int k = 0 ; k<asientos;k++) {
-							pintarAsinetos(salasCine[0].getButacas());
+							pintarAsientos(salasCine[0].getButacas());
 							int numero = Utilidades.pideDatoNumero("Escoge el asiento"+ (k+1)+": (ejemplo 11,21,31)");
 							int i = numero / 10;
 					        int j = numero % 10;
@@ -72,7 +73,7 @@ public class Cine {
 					} else if (opcion == 2) {
 						System.out.println("Elige tus asientos");
 						for(int k = 0 ; k<asientos;k++) {
-							pintarAsinetos(salasCine[1].getButacas());
+							pintarAsientos(salasCine[1].getButacas());
 							int numero = Utilidades.pideDatoNumero("Escoge el asiento "+ (k+1)+": (ejemplo 11,21,31)");
 							int i = numero / 10;
 					        int j = numero % 10;
@@ -81,7 +82,7 @@ public class Cine {
 					} else {
 						System.out.println("Elige tus asientos");
 						for(int k = 0 ; k<asientos;k++) {
-							pintarAsinetos(salasCine[2].getButacas());
+							pintarAsientos(salasCine[2].getButacas());
 							int numero = Utilidades.pideDatoNumero("Escoge el asiento"+ (k+1)+": (ejemplo 11,21,31)");
 							int i = numero / 10;
 					        int j = numero % 10;
@@ -101,7 +102,10 @@ public class Cine {
 	}
 
 	public void mostrarSalas(Sala[] salasCine) {
+		int i = 1;
 		for( Sala sala : salasCine) {
+			System.out.println("Sala "+ i);
+			pintarAsientos(sala.getButacas());
 			
 		}
 	}
@@ -124,7 +128,7 @@ public class Cine {
 		return asientosDisponibles;
 	}
 
-	public void pintarAsinetos(int[][] asientos) {
+	public void pintarAsientos(int[][] asientos) {
 		System.out.println("  1 2 3");
 		int i = 1;
 		for (int[] asientosLibres : asientos) {
