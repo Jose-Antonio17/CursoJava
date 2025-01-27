@@ -5,26 +5,27 @@ public class Instituto {
 	public static void main(String [] args) {
 		
 		String [] asignaturasAlumno1 = {"Algebra","Fisica"};
-		Alumno Alumno1 = new Alumno ("Jorge", "Rufo",32,6,"jorge@gmail.com");
-		Alumno1.setAsignaturas(asignaturasAlumno1);
+		Alumno alumno1 = new Alumno ("Jorge", "Rufo",32,6,"jorge@gmail.com");
+		alumno1.setAsignaturas(asignaturasAlumno1);
 		
 		String [] asignaturasAlumno2 = {"Historia","Ingles","Arte"};
-		Alumno Alumno2 = new Alumno ("Sergio", "Melero",28,10,"sergio@gmail.com");
-		Alumno2.setAsignaturas(asignaturasAlumno2);
+		Alumno alumno2 = new Alumno ("Sergio", "Melero",28,10,"sergio@gmail.com");
+		alumno2.setAsignaturas(asignaturasAlumno2);
 		
 		String [] asignaturasAlumno3 = {"Matematica","Quimica","Fisica"};
-		Alumno Alumno3 = new Alumno ("Jose", "Cordoba",35,8,"jose@gmail.com",asignaturasAlumno3);
+		Alumno alumno3 = new Alumno ("Jose", "Cordoba",35,8,"jose@gmail.com",asignaturasAlumno3);
 		
-		Alumno Alumno4 = new Alumno ();
-		Alumno4.setNombre("Diego");
-		Alumno4.setApellidos("Condori");
-		Alumno4.setEdad(28);
-		Alumno4.setNotaMedia(2);
-		Alumno4.setEmail("diego@gmail.com");
+		Alumno alumno4 = new Alumno ();
+		alumno4.setNombre("Diego");
+		alumno4.setApellidos("Condori");
+		alumno4.setEdad(28);
+		alumno4.setNotaMedia(2);
+		alumno4.setEmail("diego@gmail.com");
 		String [] asignaturasAlumno4 = {"Lengua","Musica","Arte"};
-		Alumno4.setAsignaturas(asignaturasAlumno4);
+		alumno4.setAsignaturas(asignaturasAlumno4);
+		//Alumno4.setAsignaturas(new String [] {""Lengua","Musica","Arte""})   ...ejemplo de como enviar un array sin declararlo antes
 		
-		Alumno [] alumnosInstituto = {Alumno1, Alumno2, Alumno3, Alumno4};
+		Alumno [] alumnosInstituto = {alumno1, alumno2, alumno3, alumno4};
 		
 		System.out.println("Lista de estudiantes");
 		
@@ -34,7 +35,7 @@ public class Instituto {
 				alumnoArray.estudiar();
 				System.out.println("Asignaturas:");
 				for(String asignaturas : alumnoArray.getAsignaturas()) {
-					System.out.println("  " + asignaturas);
+					System.out.println("\t" + asignaturas);  //si un array es null dara error, usar un if(array!=null)
 				}
 			
 		}
