@@ -21,16 +21,16 @@ public class Cine {
 		Espectador[] espectadoresCine = cineJose.crearEspetadores();
 
 		cineJose.escogerPelicula(cineJose.salas, espectadoresCine);
-		
+
 		cineJose.mostrarSalas(cineJose.salas);
 
 	}
 
 	public Sala[] crearSalas() {
 
-		Sala sala1 = new Sala(1, "Avatar", new int[3][3]);
-		Sala sala2 = new Sala(2, "Ben-Hur", new int[3][3]);
-		Sala sala3 = new Sala(3, "Gravity", new int[3][3]);
+		Sala sala1 = new Sala(1, "Avatar", new Espectador[3][3]);
+		Sala sala2 = new Sala(2, "Ben-Hur", new Espectador[3][3]);
+		Sala sala3 = new Sala(3, "Gravity", new Espectador[3][3]);
 
 		Sala[] cineSalas = { sala1, sala2, sala3 };
 		return cineSalas;
@@ -49,7 +49,7 @@ public class Cine {
 	public void escogerPelicula(Sala[] salasCine, Espectador[] cineEspectadores) {
 		boolean fin = true;
 		int espectador = 0;
-		do {		
+		do {
 			for (Espectador cineEspectador : cineEspectadores) {
 				System.out.println("Lista de peliculas:");
 				System.out.println("1.-" + salasCine[0].getTituloPelicula());
@@ -57,72 +57,76 @@ public class Cine {
 				System.out.println("3.-" + salasCine[2].getTituloPelicula());
 				System.out.println("Cliente: " + cineEspectador.getNombre());
 				int opcion = Utilidades.pideDatoNumero("Escoge una pelicula:");
-				int asientos = Utilidades.pideDatoNumero("¿Cuantos entradas quiere?");
+				int asientos = Utilidades.pideDatoNumero("Indicar cuantas entradas desea comprar");
 				if (asientosLibres(salasCine[0].getButacas(), asientos)) {
 					System.out.println("=================");
 					if (opcion == 1) {
 						System.out.println("Elige tus asientos");
-						for(int k = 0 ; k<asientos;k++) {
+						for (int k = 0; k < asientos; k++) {
 							pintarAsientos(salasCine[0].getButacas());
-							int numero = Utilidades.pideDatoNumero("Escoge el asiento"+ (k+1)+": (ejemplo 11,21,31)");
+							int numero = Utilidades.pideDatoNumero(
+									"Escoge el asiento " + (k + 1) + ": (primero fila y luego columna)");
 							int i = numero / 10;
-					        int j = numero % 10;
-					        salasCine[0].getButacas()[i][j]=1;
+							int j = numero % 10;
+							salasCine[0].getButacas()[i - 1][j - 1] = cineEspectador;
 						}
 					} else if (opcion == 2) {
 						System.out.println("Elige tus asientos");
-						for(int k = 0 ; k<asientos;k++) {
+						for (int k = 0; k < asientos; k++) {
 							pintarAsientos(salasCine[1].getButacas());
-							int numero = Utilidades.pideDatoNumero("Escoge el asiento "+ (k+1)+": (ejemplo 11,21,31)");
+							int numero = Utilidades.pideDatoNumero(
+									"Escoge el asiento " + (k + 1) + ": (primero fila y luego columna)");
 							int i = numero / 10;
-					        int j = numero % 10;
-					        salasCine[0].getButacas()[i-1][j-1]=1;
+							int j = numero % 10;
+							salasCine[1].getButacas()[i - 1][j - 1] = cineEspectador;
 						}
 					} else {
 						System.out.println("Elige tus asientos");
-						for(int k = 0 ; k<asientos;k++) {
+						for (int k = 0; k < asientos; k++) {
 							pintarAsientos(salasCine[2].getButacas());
-							int numero = Utilidades.pideDatoNumero("Escoge el asiento"+ (k+1)+": (ejemplo 11,21,31)");
+							int numero = Utilidades.pideDatoNumero(
+									"Escoge el asiento " + (k + 1) + ": (primero fila y luego columna)");
 							int i = numero / 10;
-					        int j = numero % 10;
-					        salasCine[0].getButacas()[i][j]=1;
+							int j = numero % 10;
+							salasCine[2].getButacas()[i - 1][j - 1] = cineEspectador;
 						}
 					}
 				} else {
-					System.out.println("Lo siento, no hay suficientes asientos disponibles para la cantidad que desea comprar.");
+					System.out.println(
+							"Lo siento, no hay suficientes asientos disponibles para la cantidad que desea comprar.");
 					System.out.println("Por favor escoga otra pelicula");
 					fin = false;
 				}
 				espectador++;
 			}
-			
-		} while (fin || espectador <cineEspectadores.length);
+
+		} while (fin || espectador < cineEspectadores.length);
 
 	}
 
 	public void mostrarSalas(Sala[] salasCine) {
-		int contador= 0;
+		int contador = 0;
 		int i = 0;
-		for( Sala sala : salasCine) {
-			System.out.println("Sala "+ i);
+		for (Sala sala : salasCine) {
+			System.out.println("Sala " + i);
 			pintarAsientos(sala.getButacas());
-			for (int[] asientosOcupados : sala.getButacas()) {
-				for (int asientoLibre : asientosOcupados) {
-					if (asientoLibre == 1) {
+			for (Espectador[] asientosOcupados : sala.getButacas()) {
+				for (Espectador asientoLibre : asientosOcupados) {
+					if (asientoLibre != null) {
 						contador++;
 					}
 				}
 			}
-			System.out.println("los asientos ocupados son "+ contador);	
+			System.out.println("los asientos ocupados son " + contador);
 		}
 	}
 
-	public boolean asientosLibres(int[][] asientos, int asientoComprados) {
+	public boolean asientosLibres(Espectador[][] asientos, int asientoComprados) {
 		boolean asientosDisponibles = true;
 		int contador = 0;
-		for (int[] asientosLibres : asientos) {
-			for (int asientoLibre : asientosLibres) {
-				if (asientoLibre == 0) {
+		for (Espectador[] asientosLibres : asientos) {
+			for (Espectador asientoLibre : asientosLibres) {
+				if (asientoLibre == null) {
 					contador++;
 				}
 			}
@@ -135,13 +139,13 @@ public class Cine {
 		return asientosDisponibles;
 	}
 
-	public void pintarAsientos(int[][] asientos) {
+	public void pintarAsientos(Espectador[][] asientos) {
 		System.out.println("  1 2 3");
 		int i = 1;
-		for (int[] asientosLibres : asientos) {
-			System.out.print(i+" ");
-			for (int asientoLibre : asientosLibres) {
-				if (asientoLibre == 0) {
+		for (Espectador[] asientosLibres : asientos) {
+			System.out.print(i + " ");
+			for (Espectador asientoLibre : asientosLibres) {
+				if (asientoLibre == null) {
 					System.out.print("O ");
 				} else {
 					System.out.print("X ");

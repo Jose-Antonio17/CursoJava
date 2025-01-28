@@ -4,9 +4,9 @@ public class Sala {
 
 	private int numero;
 	private String tituloPelicula;
-	private int [][] butacas;
+	private Espectador [][] butacas;
 	
-	public Sala(int numero, String tituloPelicula, int[][] butacas) {
+	public Sala(int numero, String tituloPelicula, Espectador[][] butacas) {
 		super();
 		this.numero = numero;
 		this.tituloPelicula = tituloPelicula;
@@ -24,10 +24,10 @@ public class Sala {
 	public void setTituloPelicula(String tituloPelicula) {
 		this.tituloPelicula = tituloPelicula;
 	}
-	public int[][] getButacas() {
+	public Espectador [][] getButacas() {
 		return butacas;
 	}
-	public void setButacas(int[][] butacas) {
+	public void setButacas(Espectador[][] butacas) {
 		this.butacas = butacas;
 	}
 }
