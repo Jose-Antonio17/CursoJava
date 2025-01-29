@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import es.cursojava.funciones.Utilidades;
+
 public class Borrador {
 
 	public static void main(String[] args) {
