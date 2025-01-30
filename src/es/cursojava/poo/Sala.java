@@ -1,5 +1,7 @@
 package es.cursojava.poo;
 
+import java.util.Arrays;
+
 public class Sala {
 
 	private int numero;
@@ -30,4 +32,10 @@ public class Sala {
 	public void setButacas(Espectador[][] butacas) {
 		this.butacas = butacas;
 	}
+	@Override
+	public String toString() {
+		return "Sala " + numero + ". \n Pelicula: " + tituloPelicula;
+	}
+	
+	
 }

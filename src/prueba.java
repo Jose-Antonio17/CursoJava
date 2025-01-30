@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class prueba {
 
 	public static void main(String[] args) {
+		
+		int casa[];
 
 		int numSecreto = (int)(1000 * Math.random());
 		

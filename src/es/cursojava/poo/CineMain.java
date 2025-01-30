@@ -4,23 +4,14 @@ import es.cursojava.funciones.Utilidades;
 
 public class CineMain {
 
-	private String nombre;
-	private Sala[] salas;
-
-	public CineMain(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-
 	public static void main(String[] args) {
 
-		CineMain cineJose = new CineMain("Cineplanet");
-		Sala[] salasCine = cineJose.crearSalas();
-		cineJose.salas = salasCine;
+		CineMain cine1 = new CineMain();
+		Sala[] salasCine = cine1.crearSalas();
+		Espectador[] espectadoresCine = cine1.crearEspetadores();
+		Cine cinePlanet = new Cine("Cineplanet", salasCine);
 
-		Espectador[] espectadoresCine = cineJose.crearEspetadores();
-
-		cineJose.escogerPelicula(cineJose.salas, espectadoresCine);
+		cine1.escogerPelicula(cinePlanet.getSalas(), espectadoresCine);
 
 	}
 
@@ -48,32 +39,26 @@ public class CineMain {
 		boolean fin = true;
 		int espectador = 0;
 		do {
-			for (int l= 0; l < cineEspectadores.length ; l++) {
+			for (int l = 0; l < cineEspectadores.length; l++) {
 				pintarMenuPeliculas(salasCine, cineEspectadores[l]);
-				int opcion = Utilidades.pideDatoNumero("Escoga la pelicula que quiere ver:");
+				int opcion = Utilidades.pideDatoNumero("Escoge la sala de la pelicula que quieres ver:");
 				if (opcion < 4 && opcion > 0) {
-				int asientos = Utilidades.pideDatoNumero("Indicar cuantas entradas desea comprar:");
-				if (asientosLibres(salasCine[0].getButacas(), asientos)) {
-					if (opcion == 1) {
+					int asientos = Utilidades.pideDatoNumero("Indicar cuantas entradas desea comprar:");
+					if (asientosLibres(salasCine[opcion - 1].getButacas(), asientos)) {
+						System.out.println("=================");
 						System.out.println("Elige tus asientos");
-						reservarAsiento(salasCine[0],cineEspectadores[l],asientos);
-					} else if (opcion == 2) {
-						System.out.println("Elige tus asientos");
-						reservarAsiento(salasCine[1],cineEspectadores[l],asientos);
+						reservarAsiento(salasCine[opcion - 1], cineEspectadores[l], asientos);
+						espectador++;
 					} else {
-						System.out.println("Elige tus asientos");
-						reservarAsiento(salasCine[2],cineEspectadores[l],asientos);
+						System.out
+								.println("No hay suficientes asientos disponibles para la cantidad que desea comprar.");
+						System.out.println("Por favor escoga otra pelicula");
+						l--;
 					}
-					espectador++;
 				} else {
-					System.out.println("No hay suficientes asientos disponibles para la cantidad que desea comprar.");
-					System.out.println("Por favor escoga otra pelicula");
-					l--;
+					System.out.println("Número no valido, ingrese la opción otra vez");
 				}
-			} else {
-				System.out.println("Número no valido, ingrese la opción otra vez");
-			}
-				if (espectador > cineEspectadores.length-1) {
+				if (espectador > cineEspectadores.length - 1) {
 					fin = false;
 				}
 			}
@@ -88,17 +73,18 @@ public class CineMain {
 		for (Sala sala : salasCine) {
 			int i = 0;
 			int j = 0;
-			System.out.println("===============");
+			System.out.println("=================");
 			System.out.println("Sala " + (k));
 			System.out.println("Pelicula: " + sala.getTituloPelicula());
 			pintarAsientos(sala.getButacas());
 			for (Espectador[] asientosOcupados : sala.getButacas()) {
 				i++;
-				j=0;
+				j = 0;
 				for (Espectador asientoEspectador : asientosOcupados) {
 					j++;
 					if (asientoEspectador != null) {
-						System.out.println("\tAsiento " + i + j + " esta reservado por " + asientoEspectador.getNombre());
+						System.out
+								.println("\tAsiento " + i + j + " esta reservado por " + asientoEspectador.getNombre());
 					} else {
 						System.out.println("\tAsiento " + i + j + " disponible");
 					}
@@ -130,8 +116,12 @@ public class CineMain {
 		System.out.println("=================");
 		System.out.println("O -> asientos disponibles   X-> asientos reservados");
 		System.out.println("\tCOLUMNAS");
-		System.out.println("\t1 2 3");
+		System.out.print("\t");
+		for (int c = 1; c<asientos.length+1;c++) {
+		System.out.print(c+" ");
+	}
 		int i = 1;
+		System.out.println();
 		for (Espectador[] asientosLibres : asientos) {
 			System.out.print(" FILA " + i + " ");
 			for (Espectador asientoLibre : asientosLibres) {
@@ -145,31 +135,35 @@ public class CineMain {
 			i++;
 		}
 	}
-	public void pintarMenuPeliculas (Sala[] salasCine,Espectador cineEspectador) {
-		System.out.println("==============");
+
+	public void pintarMenuPeliculas(Sala[] salasCine, Espectador cineEspectador) {
+		System.out.println("================");
 		System.out.println("Lista de peliculas:");
-		System.out.println("1.-" + salasCine[0].getTituloPelicula());
-		System.out.println("2.-" + salasCine[1].getTituloPelicula());
-		System.out.println("3.-" + salasCine[2].getTituloPelicula());
+		for (int i = 0; i < salasCine.length; i++) {
+			System.out.println(salasCine[i]);
+		}
+		System.out.println("=================");
 		System.out.println("Cliente: " + cineEspectador.getNombre());
+		System.out.println("=================");
 	}
-	public void reservarAsiento (Sala salaCine, Espectador cineEspectador, int asientos) {
+
+	public void reservarAsiento(Sala salaCine, Espectador cineEspectador, int asientos) {
 		for (int k = 0; k < asientos; k++) {
 			int i = 0;
 			int j = 0;
 			do {
-			pintarAsientos(salaCine.getButacas());
-			int numero = Utilidades.pideDatoNumero(
-					"Escoge el asiento " + (k + 1) + ": (primero fila y luego columna)");
-			i = numero / 10;
-			j = numero % 10;
-			if(salaCine.getButacas()[i - 1][j - 1] == null) {
-			salaCine.getButacas()[i - 1][j - 1] = cineEspectador;
-			}else {
-				System.out.println("Asiento no disponible, escoge otra vez");
-				k--;
-			}
-			}while (salaCine.getButacas()[i - 1][j - 1] == null);
+				pintarAsientos(salaCine.getButacas());
+				int numero = Utilidades
+						.pideDatoNumero("Escoge el asiento " + (k + 1) + ": (primero fila y luego columna)");
+				i = numero / 10;
+				j = numero % 10;
+				if (salaCine.getButacas()[i - 1][j - 1] == null) {
+					salaCine.getButacas()[i - 1][j - 1] = cineEspectador;
+				} else {
+					System.out.println("Asiento no disponible, escoge otra vez");
+					k--;
+				}
+			} while (salaCine.getButacas()[i - 1][j - 1] == null);
 		}
 	}
 }
