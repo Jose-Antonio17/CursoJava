@@ -1,4 +1,4 @@
-package es.cursojava.poo;
+package es.cursojava.herencia;
 
 public class Tienda {
 
