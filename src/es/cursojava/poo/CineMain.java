@@ -119,7 +119,7 @@ public class CineMain {
 		System.out.print("\t");
 		for (int c = 1; c<asientos.length+1;c++) {
 		System.out.print(c+" ");
-	}
+	    }
 		int i = 1;
 		System.out.println();
 		for (Espectador[] asientosLibres : asientos) {
