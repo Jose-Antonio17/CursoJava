@@ -1,10 +1,10 @@
 package es.cursojava.vehiculos;
 
-public class VehiculosMain {
+public class VehiculosMain1 {
 
     public static void main(String[] args) {
 
-        VehiculosMain vehiculosMain = new VehiculosMain();
+        VehiculosMain1 vehiculosMain = new VehiculosMain1();
         vehiculosMain.Vehiculos();
 
     }
