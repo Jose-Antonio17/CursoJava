@@ -29,15 +29,14 @@ public class Coche extends Vehiculo{
     }
 
     @Override
-    public void mostrarInformacion(Vehiculo vehiculo) {
-        Coche coche = (Coche)vehiculo; 
-        System.out.println(coche);
+    public String toString() {
+        return "Coche"+ super.toString()+"\n NumeroPuertas = " + numeroPuertas + "\n AireAcondicionao = " + (aireAcondicionao?"Si":"No");
     }
 
     @Override
-    public String toString() {
-        return "Coche [numeroPuertas=" + numeroPuertas + ", aireAcondicionao=" + aireAcondicionao + ", toString()="
-                + super.toString() + "]";
+    public double impuestoVehiculo() {
+        double impuesto = 0.05;
+        return impuesto;
     }
 
     

@@ -25,14 +25,13 @@ public class Motocicleta extends Vehiculo {
     }
 
     @Override
-    public void mostrarInformacion(Vehiculo vehiculo) {
-        Motocicleta motocicleta = (Motocicleta)vehiculo; 
-        System.out.println(motocicleta);
-    }
-    @Override
     public String toString() {
-        return "Motocicleta [tieneSidecar=" + tieneSidecar + ", cilindrada=" + cilindrada + ", toString()="
-                + super.toString() + "]";
+        return "Motocicleta" + super.toString() + "\n TieneSidecar = " + (tieneSidecar?"Si":"No") + "\n Cilindrada = " + cilindrada;
     }
    
+    @Override
+    public double impuestoVehiculo() {
+        double impuesto = -0.05;
+        return impuesto;
+    }
 }

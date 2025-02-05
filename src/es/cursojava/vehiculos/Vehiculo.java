@@ -1,5 +1,7 @@
 package es.cursojava.vehiculos;
 
+import java.time.LocalDate;
+
 public class Vehiculo {
 
     private String marca;
@@ -56,14 +58,52 @@ public class Vehiculo {
         this.tipo = tipo;
     }
 
-    public void mostrarInformacion(Vehiculo vehiculo){
-        System.out.println(vehiculo);
+    public void mostrarInformacion(){
+        System.out.println(toString());
     }
     
     @Override
     public String toString() {
-        return "Vehiculo [marca=" + marca + ", modelo=" + modelo + ", anyo=" + anyo + ", tipo=" + tipo + "]";
+        return "\n Marca = " + marca + "\n Modelo = " + modelo + "\n Año = " + anyo + "\n Tipo = " + tipo;
     }
   
-    
+    public void impuesto() {
+            double impuesto = 200;
+            double impuesto1 = impuesto * impuestoAntiguedad();
+            double impuesto2 = impuesto * impuestoTipo();
+            double impuesto3 = impuesto * impuestoVehiculo();
+            impuesto = impuesto + impuesto1 + impuesto2 + impuesto3;
+            System.out
+                    .println("El impuesto del " + marca + " " + modelo + " es " + impuesto);
+
+    }
+
+    private double impuestoAntiguedad() {
+        double impuestoAnyo = 0;
+        if (LocalDate.now().getYear() - anyo > 20) {
+            impuestoAnyo = 0.1;
+        } else if (LocalDate.now().getYear() - anyo > 10) {
+            impuestoAnyo = 0.05;
+        } else {
+            impuestoAnyo = 0;
+        }
+        return impuestoAnyo;
+    }
+
+    private double impuestoTipo() {
+        double impuestoTipo = 0;
+        if (tipo.equals("eléctrico")) {
+            impuestoTipo = 0.1;
+        } else if (tipo.equals("hibrido")) {
+            impuestoTipo = 0.05;
+        } else {
+            impuestoTipo = 0.1;
+        }
+        return impuestoTipo;
+    }
+
+    public double impuestoVehiculo() {
+        double impuesto = 0;
+        return impuesto;
+    } 
 }

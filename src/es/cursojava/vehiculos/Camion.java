@@ -1,10 +1,10 @@
 package es.cursojava.vehiculos;
 
-public class Camion extends Vehiculo{
+public class Camion extends Vehiculo {
 
     private double capacidadCarga;
     private int numeroEjes;
-    
+
     public Camion(String marca, String modelo, int anyo, double velocidadMaxima, String tipo, double capacidadCarga,
             int numeroEjes) {
         super(marca, modelo, anyo, velocidadMaxima, tipo);
@@ -29,17 +29,14 @@ public class Camion extends Vehiculo{
     }
 
     @Override
-    public void mostrarInformacion(Vehiculo vehiculo) {
-        Camion camion = (Camion)vehiculo; 
-        System.out.println(camion);
+    public String toString() {
+        return "Camion" + super.toString() + "\n CapacidadCarga = " + capacidadCarga + "\n NumeroEjes = " + numeroEjes;
     }
 
     @Override
-    public String toString() {
-        return "Camion [capacidadCarga=" + capacidadCarga + ", numeroEjes=" + numeroEjes + ", toString()="
-                + super.toString() + "]";
+    public double impuestoVehiculo() {
+        double impuesto = 0.1;
+        return impuesto;
     }
-
-   
 
 }
