@@ -1,6 +1,6 @@
 package es.cursojava.ejercicios.arrays;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class ArrayEjercicio2 {
 

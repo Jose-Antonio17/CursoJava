@@ -2,7 +2,7 @@ package es.cursojava.banda;
 
 public class BandaMusica {
 
-    private Instrumento[] banda;
+    //private Instrumento[] banda;
 
     public static void main(String[] args) {
 

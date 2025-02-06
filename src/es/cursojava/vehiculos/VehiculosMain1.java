@@ -33,7 +33,7 @@ public class VehiculosMain1 {
         }
     } 
     private void aparcarGaraje( Vehiculo[] vehiculos){
-        Garaje garaje = new Garaje(3);
+        Garaje garaje = new Garaje("GarajeJose",1,1,1);
         for (Vehiculo vehiculo : vehiculos) {
             garaje.aparcarVehiculos(vehiculo);
         }
