@@ -37,6 +37,5 @@ public class VehiculosMain1 {
         for (Vehiculo vehiculo : vehiculos) {
             garaje.aparcarVehiculos(vehiculo);
         }
-        
     }
 }
