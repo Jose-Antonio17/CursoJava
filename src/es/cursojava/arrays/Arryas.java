@@ -16,7 +16,7 @@ public class Arryas {
   	  System.out.println(colores [2]);
   	  System.out.println(colores [3]);
   	  
-  	String[] colores2 = {"Blanco","Negro"};
+  	//String[] colores2 = {"Blanco","Negro"};
 	
 	for (int i=0; i<colores.length ; i++) {
 		String color = colores[i];

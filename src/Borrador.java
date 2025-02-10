@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import es.cursojava.funciones.Utilidades;
+//import es.cursojava.funciones.Utilidades;
 
 public class Borrador {
 

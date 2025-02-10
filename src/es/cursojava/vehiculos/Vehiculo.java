@@ -2,7 +2,7 @@ package es.cursojava.vehiculos;
 
 import java.time.LocalDate;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
     private String marca;
     private String modelo;
@@ -102,8 +102,9 @@ public class Vehiculo {
         return impuestoTipo;
     }
 
-    public double impuestoVehiculo() {
-        double impuesto = 0;
-        return impuesto;
-    } 
+    public abstract double impuestoVehiculo(); 
+    //{
+      //  double impuesto = 0;
+      //  return impuesto;
+    //} 
 }
