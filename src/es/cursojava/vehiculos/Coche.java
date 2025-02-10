@@ -1,6 +1,6 @@
 package es.cursojava.vehiculos;
 
-public class Coche extends Vehiculo{
+public class Coche extends VehiculoMotorizado{
 
     private int numeroPuertas;
     private boolean aireAcondicionao;
@@ -39,7 +39,17 @@ public class Coche extends Vehiculo{
         return impuesto;
     }
 
-    
+    @Override
+    public void encender() {
+        System.out.println("Arrancando el coche");
+        
+    }
+
+    @Override
+    public void apagar() {
+        System.out.println("Apagando el coche");
+        
+    }
     
 
     

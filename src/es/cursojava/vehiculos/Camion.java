@@ -1,6 +1,6 @@
 package es.cursojava.vehiculos;
 
-public class Camion extends Vehiculo {
+public class Camion extends VehiculoMotorizado {
 
     private double capacidadCarga;
     private int numeroEjes;
@@ -37,6 +37,18 @@ public class Camion extends Vehiculo {
     public double impuestoVehiculo() {
         double impuesto = 0.1;
         return impuesto;
+    }
+    
+    @Override
+    public void encender() {
+        System.out.println("Arrancando el coche");
+        
+    }
+
+    @Override
+    public void apagar() {
+        System.out.println("Apagando el coche");
+        
     }
 
 }

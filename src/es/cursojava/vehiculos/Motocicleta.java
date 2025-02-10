@@ -1,6 +1,6 @@
 package es.cursojava.vehiculos;
 
-public class Motocicleta extends Vehiculo {
+public class Motocicleta extends VehiculoMotorizado {
 
     private boolean tieneSidecar;
     private int cilindrada;
@@ -33,5 +33,16 @@ public class Motocicleta extends Vehiculo {
     public double impuestoVehiculo() {
         double impuesto = -0.05;
         return impuesto;
+    }
+    @Override
+    public void encender() {
+        System.out.println("Arrancando el coche");
+        
+    }
+
+    @Override
+    public void apagar() {
+        System.out.println("Apagando el coche");
+        
     }
 }
