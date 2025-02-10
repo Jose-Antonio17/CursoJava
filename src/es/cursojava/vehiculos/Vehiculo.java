@@ -103,8 +103,5 @@ public abstract class Vehiculo {
     }
 
     public abstract double impuestoVehiculo(); 
-    //{
-      //  double impuesto = 0;
-      //  return impuesto;
-    //} 
+    
 }

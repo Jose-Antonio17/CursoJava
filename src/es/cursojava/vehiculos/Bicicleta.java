@@ -8,4 +8,8 @@ public class Bicicleta extends Vehiculo{
         this.nunMarchas = nunMarchas;
     } 
 
+    public double impuestoVehiculo() {
+        ;
+        return 0;
+    }
 }
