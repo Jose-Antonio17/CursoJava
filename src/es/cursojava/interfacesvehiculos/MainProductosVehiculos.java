@@ -1,5 +1,6 @@
 package es.cursojava.interfacesvehiculos;
 
+import es.cursojava.interfaces.Consultable;
 import es.cursojava.interfaces.Encendible;
 import es.cursojava.interfaces.Operable;
 import es.cursojava.vehiculos.Bicicleta;
@@ -16,7 +17,7 @@ public class MainProductosVehiculos {
 
         Tarta tarta = new Tarta("Tarta1", 20, null, "Chocolate");
         Coche coche = new Coche("Marca1", "Modelo1", 2020, 200, "Diesel", 5, false);
-        Operable ordenador = new Ordenador("O1", 1000, "", null);
+        Ordenador ordenador = new Ordenador("O1", 1000, "", null);
         Bicicleta bicicleta = new Bicicleta("","",2020,200,"Pedales",10);
         Mechero mechero = new Mechero("Mechero1", 100, null);
 
@@ -25,7 +26,9 @@ public class MainProductosVehiculos {
 
         Encendible [] arrayEncendible = {coche, ordenador,mechero};
         enciende(mechero);
-        //operable(coche);
+        
+        Consultable [] arrayConsultar = {coche, ordenador,mechero, bicicleta, tarta};
+        consultar(arrayConsultar);
     }
 
 
@@ -41,6 +44,11 @@ public class MainProductosVehiculos {
         objetoEncendible.encender();
     }
 
-    
+    public void consultar (Consultable [] objetoConsultable){
+    	for (Consultable consultable : objetoConsultable) {
+    		consultable.consultar();
+		}
+    	
+    }
 
 }

@@ -1,8 +1,9 @@
 package es.cursojava.interfacesvehiculos;
 
+import es.cursojava.interfaces.Insertable;
 import es.cursojava.interfaces.Operable;
 
-public class Ordenador extends ProductosElectronicos implements Operable {
+public class Ordenador extends ProductosElectronicos implements Operable, Insertable {
 
     private String procesador;
 
@@ -36,5 +37,19 @@ public class Ordenador extends ProductosElectronicos implements Operable {
         System.out.println("Suspendiendo ordenador");
     }
 
-   
+    @Override
+    public void consultar() {
+        System.out.println("Consultando ordenador");
+        
+    }
+    @Override
+    public void insertar() {
+        System.out.println("Insertando ordenador");
+        
+    }
+    @Override
+    public void update() {
+        System.out.println("Actualizando ordenador");
+        
+    }
 }

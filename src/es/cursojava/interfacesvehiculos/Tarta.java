@@ -16,5 +16,15 @@ public class Tarta extends Alimentos {
     public void setSabor(String sabor) {
         this.sabor = sabor;
     }
+    @Override
+    public void consultar() {
+        System.out.println("Consultando tarta");
+        
+    }
+    @Override
+    public void insertar() {
+        System.out.println("Insertando tarta");
+        
+    }
 
 }

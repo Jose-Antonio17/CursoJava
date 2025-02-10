@@ -51,13 +51,19 @@ public class Coche extends VehiculoMotorizado{
         
     }
     
-
+    @Override
+    public void consultar() {
+        System.out.println("Consultando coche");
+        
+    }
+    @Override
+    public void insertar() {
+        System.out.println("Insertando coche");
+        
+    }
+    public void update() {
+        System.out.println("Actualizando coche");
+        
+    }
     
-   
-    
-
-
-   
-
-
 }

@@ -45,4 +45,18 @@ public class Motocicleta extends VehiculoMotorizado {
         System.out.println("Apagando el coche");
         
     }
+    @Override
+    public void consultar() {
+        System.out.println("Consultando moticicleta");
+        
+    }
+    @Override
+    public void insertar() {
+        System.out.println("Insertando motocicleta");
+        
+    }
+    public void update() {
+        System.out.println("Actualizando motocicleta");
+        
+    }
 }

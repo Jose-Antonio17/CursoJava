@@ -1,6 +1,9 @@
 package es.cursojava.interfacesvehiculos;
 
-public abstract class Producto {
+import es.cursojava.interfaces.Consultable;
+import es.cursojava.interfaces.Insertable;
+
+public abstract class Producto implements Consultable, Insertable{
 
     private String nombre;
     private int precio;

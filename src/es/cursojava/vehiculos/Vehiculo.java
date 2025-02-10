@@ -2,7 +2,10 @@ package es.cursojava.vehiculos;
 
 import java.time.LocalDate;
 
-public abstract class Vehiculo {
+import es.cursojava.interfaces.Consultable;
+import es.cursojava.interfaces.Insertable;
+
+public abstract class Vehiculo implements Consultable, Insertable {
 
     private String marca;
     private String modelo;

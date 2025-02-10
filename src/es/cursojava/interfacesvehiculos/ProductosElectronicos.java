@@ -2,8 +2,9 @@ package es.cursojava.interfacesvehiculos;
 
 import es.cursojava.interfaces.Apagable;
 import es.cursojava.interfaces.Encendible;
+import es.cursojava.interfaces.Updatable;
 
-public abstract class ProductosElectronicos extends Producto implements Encendible, Apagable {
+public abstract class ProductosElectronicos extends Producto implements Encendible, Apagable, Updatable {
 
     private String fechaFabricacion;
 

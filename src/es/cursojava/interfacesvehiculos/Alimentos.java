@@ -1,6 +1,6 @@
 package es.cursojava.interfacesvehiculos;
 
-public abstract class Alimentos extends Producto {
+public abstract class Alimentos extends Producto{
 
     private String fechaCaducidad;
 

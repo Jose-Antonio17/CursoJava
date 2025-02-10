@@ -50,5 +50,20 @@ public class Camion extends VehiculoMotorizado {
         System.out.println("Apagando el coche");
         
     }
+    @Override
+    public void consultar() {
+        System.out.println("Consultando camión");
+        
+    }
+    @Override
+    public void insertar() {
+        System.out.println("Insertando camión");
+    
+    }
+    @Override
+    public void update() {
+        System.out.println("Actualizando camión");
+        
+    }
 
 }

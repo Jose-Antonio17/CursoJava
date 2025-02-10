@@ -1,6 +1,6 @@
 package es.cursojava.vehiculos;
 
-public class Bicicleta extends Vehiculo{
+public class Bicicleta extends Vehiculo {
     int nunMarchas;
 
     public Bicicleta(String marca, String modelo, int anio, double velocidadMaxima, String tipo, int nunMarchas) {
@@ -11,5 +11,15 @@ public class Bicicleta extends Vehiculo{
     public double impuestoVehiculo() {
         ;
         return 0;
+    }
+    @Override
+    public void consultar() {
+        System.out.println("Consultando bicicleta");
+        
+    }
+    @Override
+    public void insertar() {
+        System.out.println("Insertando bicicleta");
+        
     }
 }
