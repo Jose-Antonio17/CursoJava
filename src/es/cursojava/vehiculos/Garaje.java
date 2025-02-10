@@ -35,13 +35,13 @@ public class Garaje {
             }
         }
         if (vehiculoAparcar instanceof Coche) {
-            if (plazasOcupadas[0] + 1 <= maxCoches) {
+            if (plazasOcupadas[0] < maxCoches) {
                 plazaVehiculos[plazalibre] = vehiculoAparcar;
             } else {
                 System.out.println("No hay plazas disponibles para coches");
             }
         } else if (vehiculoAparcar instanceof Camion) {
-            if (plazasOcupadas[1] + 1 <= maxMotocicletas) {
+            if (plazasOcupadas[1] < maxMotocicletas) {
                 plazaVehiculos[plazalibre] = vehiculoAparcar;
             } else {
                 System.out.println("No hay plazas disponibles para camiones");
@@ -51,7 +51,7 @@ public class Garaje {
             if (moto2.isTieneSidecar()) {
                 System.out.println("No se aceptan motos con sidecar");
             } else {
-                if (plazasOcupadas[2] + 1 <= maxCamiones) {
+                if (plazasOcupadas[2] < maxCamiones) {
                     plazaVehiculos[plazalibre] = vehiculoAparcar;
                 } else {
                     System.out.println("No hay plazas disponibles para motococleta");
