@@ -34,7 +34,7 @@ public class BandaMusica {
     private void tocarInstrumentos(Instrumento[] banda) {
         boolean afinados = true;
         for (Instrumento instrumento : banda) {
-            if (instrumento.getNombre().equals("tambor")) {
+            if (instrumento instanceof Tambor) {
                 Tambor tambor2 = (Tambor) instrumento;
                 tambor2.aporrear();
             } else {
