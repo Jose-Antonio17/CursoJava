@@ -83,5 +83,13 @@ public class Alumno {
 			System.out.println(" es un genio");
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "\tNombre:" + nombre + "\n\tApellidos: " + apellidos + "\n\tEdad: " + edad + "\n\tNotaMedia: " + notaMedia
+				+ "\n\temail:" + email;
+	}
+	
+	
 	
 }

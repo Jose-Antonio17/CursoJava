@@ -19,6 +19,10 @@ public class PruebaSet {
 		System.out.println(ite.next().getNombre());
 		System.out.println(ite.next().getNombre());
 		//System.out.println(ite.next().getNombre());
+		
+		//while(ite.hasNext()){
+            //Alumno a = ite.next();
+           // System.out.println(a.getNombre());
 	}
 
 }
