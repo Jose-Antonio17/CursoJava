@@ -35,7 +35,7 @@ public class Ejercicio1 {
 		Alumno a18 = new Alumno("Nombre18", "Apellido18", 28, 5, "nombre18@gmail.com");
 		
 		List<Alumno> lista = new CopyOnWriteArrayList<>();
-		lista.addAll(Arrays.asList(a1, a2, a3, a4, a5, a6));
+		lista.addAll(Arrays.asList(a1, a2, a3, a4, a5, a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18));
 
 		Ejercicio1 main = new Ejercicio1();
 		System.out.println("Alumnos del instituto:");
