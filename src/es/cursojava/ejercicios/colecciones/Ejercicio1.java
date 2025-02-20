@@ -39,29 +39,29 @@ public class Ejercicio1 {
 		System.out.println(main.notaMediaAlta(listaColegio.get(2).getClases()));
 
 		// System.out.println("=============");
-		// System.out.println("Los alumnos suspensos son eliminados");
-		// main.suspenso(lista);
-		// main.informacionAlumnos(lista);
+		System.out.println("Los alumnos suspensos son eliminados");
+		main.suspenso(lista);
+		main.informacionAlumnos(lista);
 
-		System.out.println("===================");
-		System.out.println("Añadir un nuevo alumno");
-		String colegio = Utilidades.pideDatoString("Indique el colegio");
-		String aula = Utilidades.pideDatoString("Indique el aula");
-		String nombre = Utilidades.pideDatoString("Nombre del alumno");
-		main.anadirAlumno(colegio, aula, listaColegio,nombre);
+		//System.out.println("===================");
+		//System.out.println("Añadir un nuevo alumno");
+		//String colegio = Utilidades.pideDatoString("Indique el colegio");
+		//String aula = Utilidades.pideDatoString("Indique el aula");
+		//String nombre = Utilidades.pideDatoString("Nombre del alumno");
+		//main.anadirAlumno(colegio, aula, listaColegio,nombre);
 		
-		main.informacionColegios(listaColegio);
+		//main.informacionColegios(listaColegio);
 	}
 
 	public List<Alumno> crearAlumnos() {
 
 		Alumno a1 = new Alumno("Nombre1", "Apellido1", 28, 9.8, "nombre1@gmail.com");
-		Alumno a2 = new Alumno("Nombre2", "Apellido2", 28, 5, "nombre2@gmail.com");
-		Alumno a3 = new Alumno("Nombre3", "Apellido3", 28, 6, "nombre3@gmail.com");
+		Alumno a2 = new Alumno("Nombre2", "Apellido2", 28, 4, "nombre2@gmail.com");
+		Alumno a3 = new Alumno("Nombre3", "Apellido3", 28, 3, "nombre3@gmail.com");
 		Alumno a4 = new Alumno("Nombre4", "Apellido4", 28, 7, "nombre4@gmail.com");
 		Alumno a5 = new Alumno("Nombre5", "Apellido5", 28, 8.2, "nombre5@gmail.com");
 		Alumno a6 = new Alumno("Nombre6", "Apellido6", 28, 9, "nombre6@gmail.com");
-		Alumno a7 = new Alumno("Nombre7", "Apellido7", 29, 5, "nombre7@gmail.com");
+		Alumno a7 = new Alumno("Nombre7", "Apellido7", 29, 3, "nombre7@gmail.com");
 		Alumno a8 = new Alumno("Nombre8", "Apellido8", 28, 4.8, "nombre8@gmail.com");
 		Alumno a9 = new Alumno("Nombre9", "Apellido9", 28, 7, "nombre9@gmail.com");
 		Alumno a10 = new Alumno("Nombre10", "Apellido10", 28, 5.5, "nombre10@gmail.com");
@@ -115,9 +115,9 @@ public class Ejercicio1 {
 		co3.put("Aula2", au8);
 		co3.put("Aula3", au9);
 
-		Colegio colegio1 = new Colegio("COLEGIO1", "Dirrecion1", co1);
-		Colegio colegio2 = new Colegio("COLEGIO2", "Dirrecion2", co2);
-		Colegio colegio3 = new Colegio("COLEGIO3", "Dirrecion3", co3);
+		Colegio colegio1 = new Colegio("Colegio1", "Dirrecion1", co1);
+		Colegio colegio2 = new Colegio("Colegio2", "Dirrecion2", co2);
+		Colegio colegio3 = new Colegio("Colegio3", "Dirrecion3", co3);
 
 		List<Colegio> listaColegio = new CopyOnWriteArrayList<>();
 		listaColegio.addAll(Arrays.asList(colegio1, colegio2, colegio3));
@@ -188,7 +188,7 @@ public class Ejercicio1 {
 	}
 
 	// metodo utilizado con la clase CopyOnWriteArrayList
-	public void suspenso(List<Alumno> alumnos) {
+	public void suspenso1(List<Alumno> alumnos) {
 		int notaSuspenso = 5;
 		for (Alumno alumno : alumnos) {
 			if (alumno.getNotaMedia() < notaSuspenso) {
@@ -197,7 +197,7 @@ public class Ejercicio1 {
 		}
 	}
 
-	// mwtodo utilizado con la clase ArrayList
+	// metodo utilizado con la clase ArrayList foreach
 	public void suspenso2(List<Alumno> alumnos) {
 		List<Alumno> alumnosEliminar = new ArrayList<>();
 		int notaSuspenso = 5;
@@ -207,5 +207,15 @@ public class Ejercicio1 {
 			}
 		}
 		alumnos.removeAll(alumnosEliminar);
+	}
+	
+	// metodo utilizado con la clase ArrayList for
+	public void suspenso(List<Alumno> alumnos) {
+		int notaSuspenso = 5;
+		for (int i = 0; i<alumnos.size();i++){
+			if (alumnos.get(i).getNotaMedia() < notaSuspenso) {
+				alumnos.remove(i--);
+			}
+		}
 	}
 }
