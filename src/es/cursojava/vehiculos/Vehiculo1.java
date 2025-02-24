@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import es.cursojava.interfaces.Consultable;
 import es.cursojava.interfaces.Insertable;
 
-public abstract class Vehiculo implements Consultable, Insertable {
+public abstract class Vehiculo1 implements Consultable, Insertable {
 
     private String marca;
     private String modelo;
@@ -13,7 +13,7 @@ public abstract class Vehiculo implements Consultable, Insertable {
     private double velocidadMaxima;
     private String tipo;
     
-    public Vehiculo(String marca, String modelo, int anyo, double velocidadMaxima, String tipo) {
+    public Vehiculo1(String marca, String modelo, int anyo, double velocidadMaxima, String tipo) {
         this.marca = marca;
         this.modelo = modelo;
         this.anyo = anyo;

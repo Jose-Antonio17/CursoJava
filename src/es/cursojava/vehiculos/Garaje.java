@@ -3,7 +3,7 @@ package es.cursojava.vehiculos;
 public class Garaje {
 
     private String nombre;
-    private Vehiculo[] plazaVehiculos;
+    private Vehiculo1[] plazaVehiculos;
     private int maxCoches;
     private int maxMotocicletas;
     private int maxCamiones;
@@ -14,18 +14,18 @@ public class Garaje {
         this.maxCoches = maxCoches;
         this.maxMotocicletas = maxMotocicletas;
         this.maxCamiones = maxCamiones;
-        this.plazaVehiculos = new Vehiculo[maxCoches+maxMotocicletas+maxCamiones];
+        this.plazaVehiculos = new Vehiculo1[maxCoches+maxMotocicletas+maxCamiones];
     }
 
-    public Vehiculo[] getplazaVehiculos() {
+    public Vehiculo1[] getplazaVehiculos() {
         return plazaVehiculos;
     }
 
-    public void setplazaVehiculos(Vehiculo[] plazaVehiculos) {
+    public void setplazaVehiculos(Vehiculo1[] plazaVehiculos) {
         this.plazaVehiculos = plazaVehiculos;
     }
 
-    public void aparcarVehiculos(Vehiculo vehiculoAparcar) {
+    public void aparcarVehiculos(Vehiculo1 vehiculoAparcar) {
         int[] plazasOcupadas = plazasOcupadasTipo();
         int plazalibre = 0;
         for (int i = 0; i < plazaVehiculos.length; i++) {
@@ -66,7 +66,7 @@ public class Garaje {
         int contadorCoches = 1;
         int contadorCamiones = 1;
         int contadorMotocicleta = 1;
-        for (Vehiculo vehiculo : plazaVehiculos) {
+        for (Vehiculo1 vehiculo : plazaVehiculos) {
             if (vehiculo instanceof Coche) {
                 contadorCoches++;
             } else if (vehiculo instanceof Camion) {

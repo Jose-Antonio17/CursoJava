@@ -1,6 +1,6 @@
 package es.cursojava.vehiculos;
 
-public class Bicicleta extends Vehiculo {
+public class Bicicleta extends Vehiculo1 {
     int nunMarchas;
 
     public Bicicleta(String marca, String modelo, int anio, double velocidadMaxima, String tipo, int nunMarchas) {
