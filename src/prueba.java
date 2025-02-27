@@ -8,7 +8,7 @@ public class prueba {
 
 	public static void main(String[] args) {
 		
-		MainVehiculos.main(args);
+		System.out.println("¤ ■ ░ ▒ ×");
 		
 	}
 }
