@@ -1,4 +1,6 @@
-import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+
 
 //import es.cursojava.funciones.Utilidades;
 
@@ -6,50 +8,34 @@ public class Borrador {
 
 	public static void main(String[] args) {
 
-		int[][] numeros = new int[2][4];
-
-		for (int i = 0; i < numeros.length; i++) {
-			for (int j = 0; j < numeros[i].length; j++) {
-				Scanner scan = new Scanner(System.in);
-				System.out.println("Introduce número para la posción [" + i + "][" + j + "]");
-				numeros[i][j] = scan.nextInt();
-				// System.out.print(numeros[i][j]+"\t");
-			}
+		File directorioNuevo = new File("C:\\Users\\Tardes\\Desktop\\Prueba");
+		File fichero = new File("C:\\Users\\Tardes\\Desktop\\Prueba\\Prueba.txt");
+		
+		System.out.println(directorioNuevo.isDirectory());
+		System.out.println(fichero.isFile());
+		
+		for (int i = 0; i < 8; i++) {
+			File carpeta = new File(directorioNuevo, "CARPETA"+i);
+			carpeta.mkdir();
 		}
-
-		System.out.println();
-		for (int i = 0; i < numeros.length; i++) {
-			for (int j = 0; j < numeros[i].length; j++) {
-				System.out.print(numeros[i][j] + "\t");
-			}
-			System.out.println();
+		
+		String [] lista = directorioNuevo.list();
+		for (String nombre : lista) {
+			System.out.println(nombre);
 		}
-		System.out.println();
-
-		for (int i = 0; i < numeros.length; i++) {
-			double suma = 0.0;
-			for (int j = 0; j < numeros[i].length; j++) {
-				suma += numeros[i][j];
-			}
-			System.out.println("Media para la fila " + i + " es " + suma / numeros[i].length);
+		
+		File [] ficheros = directorioNuevo.listFiles();
+		for (File file : ficheros) {
+			System.out.println(file);
 		}
-
-		System.out.println();
-
-		for (int i = 0; i < numeros.length; i++) {
-			for (int j = 0; j < numeros[i].length; j++) {
-				if (i == j) {
-					System.out.print(numeros[i][j] + "\t");
-				} else {
-					System.out.print("*\t");
-				}
-			}
-			System.out.println();
+		
+		File fichero2 = new File("C:\\Users\\Tardes\\Desktop\\Prueba\\Prueba2.txt");
+		try {
+			fichero2.createNewFile();
+		} catch (IOException e) {
+			System.err.println("Error al crear archivos");
 		}
-		System.out.println();
-		for (int i = 0; i < numeros.length; i++) {
-			System.out.print(numeros[i][i] + "\t");
-		}
+		
 
 	}
 }
