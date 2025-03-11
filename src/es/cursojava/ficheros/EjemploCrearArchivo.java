@@ -21,7 +21,7 @@ public class EjemploCrearArchivo {
 
         ArchivoServicio service = new ArchivoServicio();
         //service.mostrarContenidoDirectorio("C:\\Users\\Tardes\\");
-        service.crearArchivo2(nombreArchivo);
+        service.crearArchivo3(nombreArchivo);
         
 //        LocalDate dateToday = LocalDate.now();  
 //        String nombreArchivo = "./recursos/Jose_"+ dateToday +".txt";
