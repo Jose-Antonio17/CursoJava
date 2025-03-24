@@ -10,7 +10,7 @@ public class EjemploLeerArchivo {
 
         
         try {
-			System.out.println(servicio.leerArchivo3(nombreArchivo));
+			System.out.println(servicio.leerArchivo(nombreArchivo));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
