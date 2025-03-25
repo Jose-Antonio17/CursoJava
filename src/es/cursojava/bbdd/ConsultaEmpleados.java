@@ -19,7 +19,7 @@ import es.cursojava.utilidades.UtilidadesBasesDeDatos;
 public class ConsultaEmpleados {
 
 	private static final String CONSULTA_EMPLEADOS = "SELECT ID,NOMBRE ,EDAD, SALARIO,DEPARTAMENTO_ID,FECHA_CONTRATACION FROM EMPLEADOS";
-	private static final String CONSULTA_DEPARTAMENTOS = "SELECT e.id, e.nombre, e.edad, e.salario, e.departamento_id, e.fecha_contratacion, d.id, d.nombre_departamento,d.fecha_creacion FROM DEPARTAMENTOS d JOIN EMPLEADOS e ON e.departamento_id=d.id";
+	private static final String CONSULTA_DEPARTAMENTOS = "SELECT e.id, e.nombre, e.edad, e.salario, e.departamento_id, e.fecha_contratacion, d.id as ID_D, d.nombre_departamento,d.fecha_creacion FROM DEPARTAMENTOS d JOIN EMPLEADOS e ON e.departamento_id=d.id";
 	public static void main(String[] args) {
 
 		ConsultaEmpleados main = new ConsultaEmpleados();
@@ -31,10 +31,16 @@ public class ConsultaEmpleados {
 		List<Empleado> listaEmpleadosMayor = main.filtroEdad(edad);
 		System.out.println("Hay " + listaEmpleadosMayor.size() + " empleados mayores de " + edad);
 
-		Map<Integer, List<Empleado>> equipos = main.equiposEmpleados(listaEmpleados);
+		Map<Integer, List<Empleado>> equipos = main.equiposEmpleados();
 		Set<Entry<Integer, List<Empleado>>> entries = equipos.entrySet();
 		for (Entry<Integer, List<Empleado>> entry : entries) {
 			System.out.println("Equipo " + entry.getKey() + ": Tiene " + entry.getValue().size() + " empleados");
+		}
+		
+		Map<String, Equipo> equiposDepartamentos = main.crearEquipos();
+		Set<Entry<String, Equipo>> entriesDepartamentos = equiposDepartamentos.entrySet();
+		for (Entry<String, Equipo> entry : entriesDepartamentos) {
+			System.out.println("Equipo " + entry.getKey() + entry.getValue());
 		}
 	}
 
@@ -124,10 +130,11 @@ public class ConsultaEmpleados {
 		return empleadosEdadMayor;
 	}
 
-	public Map<Integer, List<Empleado>> equiposEmpleados(List<Empleado> emplados) {
+	public Map<Integer, List<Empleado>> equiposEmpleados() {
 		Map<Integer, List<Empleado>> equiposEmpleados = new HashMap<>();
-
-		for (Empleado empleado : emplados) {
+		List<Empleado> empleados = crearLista();
+		
+		for (Empleado empleado : empleados) {
 
 			if (equiposEmpleados.get(empleado.getDepartamento_id()) == null) {
 				List<Empleado> equipoEmp = new ArrayList<>();
@@ -140,9 +147,9 @@ public class ConsultaEmpleados {
 		return equiposEmpleados;
 	}
 
-	public void crearEquipos() {
-		List<Equipo> equipos = new ArrayList<Equipo>();
-		
+	public Map<String, Equipo> crearEquipos() {
+		Map<String, Equipo> equipos = new HashMap<>();
+		Equipo equipo = null;
 		Connection conexion = UtilidadesBasesDeDatos.crearConexion();
 		Statement st = null;
 		ResultSet rs = null;
@@ -163,9 +170,27 @@ public class ConsultaEmpleados {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-
+				
+				int idD = rs.getInt("ID_D");
+				String nombreD = rs.getString("NOMBRE_DEPARTAMENTO");
+				SimpleDateFormat formatD = new SimpleDateFormat("yyyy-MM-dd");
+				Date fechaD = null;
+				try {
+					fechaD = format.parse(rs.getString("FECHA_CREACION"));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
 				Empleado empleado = new Empleado(id, nombre, edad, salario, departamento_id, fecha);
-				//equipos.add(empleado);
+				
+
+				if (equipos.get(nombreD) == null) {
+					equipo = new Equipo(idD, nombreD, fechaD, new ArrayList<Empleado>());
+					equipo.getEmpleados().add(empleado);
+					equipos.put(equipo.getNombreDepartamento(), equipo);
+				} else {
+					equipos.get(equipo.getNombreDepartamento()).getEmpleados().add(empleado);
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -179,6 +204,6 @@ public class ConsultaEmpleados {
 				e.printStackTrace();
 			}
 		}
-		
+		return equipos;
 	}
 }
