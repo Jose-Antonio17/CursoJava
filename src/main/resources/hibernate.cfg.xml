@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
-        "http://hibernate.org/dtd/hibernate-configuration-5.3.dtd">
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
 
         <!-- Datos de conexión -->
         <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521/XEPDB1</property>
-        <property name="hibernate.connection.username">tu_usuario</property>
-        <property name="hibernate.connection.password">tu_contraseña</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1522:XE</property>
+        <property name="hibernate.connection.username">jose</property>
+        <property name="hibernate.connection.password">password</property>
 
         <!-- Dialecto de Hibernate para Oracle -->
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
 
         <!-- Mostrar SQL por consola -->
         <property name="hibernate.show_sql">true</property>
@@ -25,7 +25,12 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Clase mapeada -->
-        <mapping class="es.cursojava.hibernate.Persona"/>
+        <mapping class="es.cursojava.hibernate.entity.Persona"/>
+        <mapping class="es.cursojava.hibernate.entity.CaballoCarrera"/>
+        <mapping class="es.cursojava.hibernate.unoauno.Direccion"/>
+        <mapping class="es.cursojava.hibernate.unoauno.Usuario"/>
+        <mapping class="es.cursojava.hibernate.entity.Estudiante"/>
+        <mapping class="es.cursojava.hibernate.entity.CarnetDeBiblioteca"/>
 
     </session-factory>
 </hibernate-configuration>
