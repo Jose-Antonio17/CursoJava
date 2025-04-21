@@ -45,17 +45,16 @@ public class Carrera {
 			while (meta) {
 				System.out.println("================================");
 				for (CaballoCarrera caballo : caballos) {
-					int ubicacion = caballo.avanzar();
-					System.out.println(caballo.getNombre() + " avanza " + ubicacion + " metros");
-					System.out
-							.println("Ubicacion actual: " + caballo.getUbicacionCarrera() + " metros desde el inicio");
-					if (caballo.getUbicacionCarrera() >= 500) {
+					//int ubicacion = caballo.avanzar();
+					//System.out.println(caballo.getNombre() + " avanza " + ubicacion + " metros");
+					//System.out.println("Ubicacion actual: " + caballo.getUbicacionCarrera() + " metros desde el inicio");
+					//if (caballo.getUbicacionCarrera() >= 500) {
 						System.out.println("==================");
 						System.out.println(caballo.getNombre() + " ha ganado la carrera");
 						System.out.println("==================");
 						meta = false;
 						break;
-					}
+					//}
 				}
 			}
 		}
