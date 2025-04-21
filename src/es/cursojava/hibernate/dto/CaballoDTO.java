@@ -3,75 +3,104 @@ package es.cursojava.hibernate.dto;
 import es.cursojava.hibernate.entity.Jinete;
 
 public class CaballoDTO {
-    private String nombre;
+    private String nombreCaballo;
     private int edad;
     private double velocidadMaxima;
     private int numeroDeTriunfos;
     private double experiencia;
     private boolean activo;
     private double avance;
-    private Jinete jinete;
-
-    public CaballoDTO(String nombre, int edad, double velocidadMaxima, int numeroDeTriunfos, double experiencia,
-            boolean activo) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.velocidadMaxima = velocidadMaxima;
-        this.numeroDeTriunfos = numeroDeTriunfos;
-        this.experiencia = experiencia;
-        this.activo = activo;
-        this.jinete = null;
-    }
-
-
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public double getVelocidadMaxima() {
-        return velocidadMaxima;
-    }
-
-    public int getNumeroDeTriunfos() {
-        return numeroDeTriunfos;
-    }
-
-    public double getExperiencia() {
-        return experiencia;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    public double getAvance() {
-        return avance;
-    }
-    public void setAvance(double avance) {
-        this.avance = avance;
-    }
+    private String nombreJinete;
+    private String nacionalidad;
+   
     
-    public Jinete getJinete() {
-		return jinete;
+	public CaballoDTO(String nombreCaballo, int edad, double velocidadMaxima, int numeroDeTriunfos, double experiencia,
+			boolean activo, double avance, String nombreJinete, String nacionalidad) {
+		super();
+		this.nombreCaballo = nombreCaballo;
+		this.edad = edad;
+		this.velocidadMaxima = velocidadMaxima;
+		this.numeroDeTriunfos = numeroDeTriunfos;
+		this.experiencia = experiencia;
+		this.activo = activo;
+		this.avance = avance;
+		this.nombreJinete = nombreJinete;
+		this.nacionalidad = nacionalidad;
 	}
 
-	public void setJinete(Jinete jinete) {
-		this.jinete = jinete;
+
+	public String getNombreCaballo() {
+		return nombreCaballo;
 	}
 
-	@Override
-    public String toString() {
-        return  "|nombre: "+ nombre + " | Edad: " + edad + ", Velocidad: " + velocidadMaxima +
-                " km/h, Triunfos: " + numeroDeTriunfos + ", Exp: " + experiencia
-                + ", activo: " + activo;
-    }
+	public void setNombreCaballo(String nombreCaballo) {
+		this.nombreCaballo = nombreCaballo;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public double getVelocidadMaxima() {
+		return velocidadMaxima;
+	}
+
+	public void setVelocidadMaxima(double velocidadMaxima) {
+		this.velocidadMaxima = velocidadMaxima;
+	}
+
+	public int getNumeroDeTriunfos() {
+		return numeroDeTriunfos;
+	}
+
+	public void setNumeroDeTriunfos(int numeroDeTriunfos) {
+		this.numeroDeTriunfos = numeroDeTriunfos;
+	}
+
+	public double getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(double experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public double getAvance() {
+		return avance;
+	}
+
+	public void setAvance(double avance) {
+		this.avance = avance;
+	}
+
+	public String getNombreJinete() {
+		return nombreJinete;
+	}
+
+	public void setNombreJinete(String nombreJinete) {
+		this.nombreJinete = nombreJinete;
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+
+    
 }
+
