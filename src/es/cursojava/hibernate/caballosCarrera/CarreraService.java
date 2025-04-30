@@ -34,6 +34,10 @@ public class CarreraService {
     public CaballoDTO obtenerJineteCaballo (long idCaballo){
         return dao.obtenerJinete(idCaballo);
     }
+    
+    public CaballoCarrera obtenerCaballo (long idCaballo){
+        return dao.getCaballoPorId(idCaballo);
+    }
 
     public List<CaballoDTO> obtenerCaballos(boolean activos) {
         List<CaballoCarrera> caballos = null;
@@ -89,6 +93,8 @@ public class CarreraService {
     private List<CaballoDTO> generaDTO (List<CaballoCarrera> caballos){
         List<CaballoDTO> dtos = new ArrayList<>();
         for (CaballoCarrera c : caballos) {
+        	String nombreJinete = (c.getJinete() != null) ? c.getJinete().getNombre() : null;
+            String nacionalidadJinete = (c.getJinete() != null) ? c.getJinete().getNacionalidad() : null;
             dtos.add(new CaballoDTO(
                     c.getNombre(),
                     c.getEdad(),
@@ -96,8 +102,8 @@ public class CarreraService {
                     c.getNumeroTriunfos(),
                     c.getExperiencia(),
                     c.isEstaActivo(),
-                    c.getJinete().getNombre(), 
-                    c.getJinete().getNacionalidad()
+                    nombreJinete, 
+                    nacionalidadJinete
             ));
         }
         return dtos;
@@ -119,5 +125,9 @@ public class CarreraService {
         cc.setJinete(jinete);
 
         dao.actualizar(cc);
+    }
+    
+    public List<CaballoCarrera> obtenerCaballosNacionalidadJinete(String nacionalidad){
+        return dao.obtenerCaballosPorNacionalidadJinete(nacionalidad);
     }
 }

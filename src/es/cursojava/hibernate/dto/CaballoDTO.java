@@ -10,8 +10,11 @@ public class CaballoDTO {
     private double avance;
     private String nombreJinete;
     private String nacionalidadJinete;
+    
+    public CaballoDTO() {
+	}
 
-    public CaballoDTO(String nombre, int edad, double velocidadMaxima, int numeroDeTriunfos, double experiencia) {
+	public CaballoDTO(String nombre, int edad, double velocidadMaxima, int numeroDeTriunfos, double experiencia) {
         this.nombre = nombre;
         this.edad = edad;
         this.velocidadMaxima = velocidadMaxima;

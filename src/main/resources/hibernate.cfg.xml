@@ -26,11 +26,14 @@
 
         <!-- Clase mapeada -->
         <mapping class="es.cursojava.hibernate.entity.Persona"/>
-        <mapping class="es.cursojava.hibernate.entity.CaballoCarrera"/>
+        <!--mapping class="es.cursojava.hibernate.entity.CaballoCarrera"/-->
+        <mapping class="es.cursojava.hibernate.entity.Jinete"/>
         <mapping class="es.cursojava.hibernate.unoauno.Direccion"/>
         <mapping class="es.cursojava.hibernate.unoauno.Usuario"/>
         <mapping class="es.cursojava.hibernate.entity.Estudiante"/>
         <mapping class="es.cursojava.hibernate.entity.CarnetDeBiblioteca"/>
+        <mapping class="es.cursojava.hibernate.entity.Cliente"/>
+        <mapping class="es.cursojava.hibernate.entity.Pedido"/>
 
     </session-factory>
 </hibernate-configuration>
